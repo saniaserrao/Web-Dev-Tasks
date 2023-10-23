@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <script>
+        let n=parseInt(prompt("Enter length of array"));
+        const arr=[];
+        for(i=0;i<n;i++){
+            var ele=parseInt(prompt("Enter element: "));
+            arr.push(ele);
+        }
+        const a=prompt("Enter index 1: ");
+        let A=parseInt(a);
+        const b=prompt("Enter length index 2: ");
+        let B=parseInt(b);
+        let c=prompt("Enter choice: 1:Add, 2:Subtract, 3:Multiply, 4:Divide");
+        const C=parseInt(c);
+        
+        switch(C){
+            case 1:{
+                let sum=arr[A]+arr[B];
+                alert("Sum: "+sum);
+                break;
+            }
+            case 2:{
+                let diff;
+                if (arr[A]>arr[B]) diff=arr[A]-arr[B];
+                else diff=arr[B]-arr[A];
+                alert("Difference: "+diff);
+                break;
+            }
+            case 3:{
+                let prod=arr[A]*arr[B];
+                alert("Product: "+prod);
+                break;
+            }
+            case 4:{
+                let quo=arr[A]/arr[B];
+                alert('Quotient: '+quo);
+                break;
+            }
+
+        }
+    </script>
+    
+</body>
+</html>

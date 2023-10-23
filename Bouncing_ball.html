@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Ball</title>
+    <style>
+        body{
+            background-color: lightblue;
+        }
+        #t
+        {
+            font-size:3em;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 30px;
+        }
+
+        #c{
+            margin:80px 400px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="t">Bouncing Ball</div>
+    
+    <canvas id="c" width="600" height="500" style="background-color: black;"></canvas>
+
+    <script>
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+
+        const FPS = 60; //controlling spd of mvmnt
+        const radius = 50;
+        let x = 200;
+        let y = 300;
+        let x_spd = 8;//  pos increment in the x direction
+        let y_spd = 10; //pos increment in the y direction
+
+        function clear() {
+            ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function draw() {
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, 2 * Math.PI);
+            ctx.closePath();
+            ctx.fillStyle = "plum";
+            ctx.fill();
+        }
+
+        function update() {
+            x = x + x_spd;
+            y = y + y_spd;
+
+            //collide functions so that the ball bounces back into the frame
+
+            const isCollidingWithRightSide = (x + radius >= canvas.width);
+
+            if (isCollidingWithRightSide) {
+                x = canvas.width - radius;
+                x_spd = -x_spd;
+            }
+
+            const isCollidingWithLeftSide = (x - radius <= 0);
+
+            if (isCollidingWithLeftSide) {
+                x = 0 + radius;
+                x_spd = -x_spd;
+            }
+
+            const isCollidingWithBottomSide = (y + radius >= canvas.height);
+
+            if (isCollidingWithBottomSide) {
+                y = canvas.height - radius;
+                y_spd = -y_spd;
+            }
+
+            const isCollidingWithTopSide = (y - radius <= 0);
+
+            if (isCollidingWithTopSide) {
+                y = 0 + radius;
+                y_spd = -y_spd;
+            }
+        }
+
+        function animate() {
+            clear();
+            draw();
+            update();
+        }
+
+        window.setInterval(animate, 1000 / FPS); //browser API that runs the function over intervals which is the 2nd parameter
+    </script>
+</body>
+
+</html>

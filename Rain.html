@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rain Animation</title>
+  <style>
+    body{
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        background-color: black;
+    }
+
+canvas {
+  display: block;
+}
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const raindrops = [];
+
+    class Raindrop {
+    constructor() {
+        this.x = Math.random() * canvas.width; // x coordinate of rain
+        this.y = Math.random() * -canvas.height;
+        this.length = Math.random() * 20 + 7; // length of raindrop
+        this.speed = Math.random() * 5 +2; //assigning arbitary numbers to be multiplied with the randome function and then a constant is added to give it similar spd
+    }
+
+    fall() 
+    {
+        this.y += this.speed; //incrementing y-coordinate with the spd that is randomly generated
+        if (this.y > canvas.height) // when the drop leaves the screen
+        {
+        this.y = Math.random() * -canvas.height;//creating new raindrops
+        this.x = Math.random() * canvas.width;
+        }
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.strokeStyle = 'white';
+        ctx.lineWidth = 1.5;
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x, this.y + this.length);
+        ctx.stroke();
+    }
+    }
+
+    function createRain() {
+    for (let i = 0; i < 100; i++) {
+        raindrops.push(new Raindrop());
+    }
+    }
+
+    function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (const raindrop of raindrops) {
+        raindrop.fall();
+        raindrop.draw();
+    }
+
+    requestAnimationFrame(animate);
+    }
+
+    createRain();
+    animate();
+  </script>
+</body>
+</html>

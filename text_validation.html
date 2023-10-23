@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Validation</title>
+</head>
+<body>
+    <p id="caption">TEXT VALIDATION</p>
+    <label for="Text" >Enter text:</label>
+    <input type="text" id="Text" name="Text">
+    <button type="button" onclick="getType()">Get Type</button>
+    <br>
+    <p id="output"></p>
+    <script>
+        function getType()
+        {
+            const t=document.getElementById("Text").value;
+            if(t==='true'|| t==='false') document.getElementById("output").innerHTML="Type: Boolean";
+            else if(!isNaN(t)) document.getElementById("output").innerHTML="Type: Integer";
+            else document.getElementById("output").innerHTML="Type: String";
+        }
+
+    </script>
+</body>
+</html>

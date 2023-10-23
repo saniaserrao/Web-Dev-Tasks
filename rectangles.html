@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="rect" width="300" height="400" style="border: 1px solid black;">
+        <script>
+
+            const canvas=document.getElementById("rect");
+            var context=canvas.getContext("2d");
+
+            context.fillStyle="red";
+            context.fillRect(0,50,150,250);
+
+            context.rotate(0.5);
+            context.fillStyle="blue";
+            context.fillRect(100,15,150,250);
+        </script>
+        
+</body>
+</html>
