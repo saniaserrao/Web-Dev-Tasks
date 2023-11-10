@@ -1,0 +1,80 @@
+body{
+    background-color: #192655;
+    margin: 0%;
+    padding: 0%;
+}
+
+#caption1{
+    width: 550px;
+    margin: 170px 180px;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size:100px;
+    color: white;
+    /*background-color:pink;*/
+}
+
+#caption2{
+    width: 400px; /*made changes to padding size not margin*/
+    margin: -165px 260px; 
+    font-family: 'Ubuntu Mono', monospace;
+    font-size:40px;
+    color: white;
+    /*background-color:pink;*/
+}
+
+#caption3{
+    width: 200px;
+    font-size: 13px;
+    font-weight:2px ;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:black;
+    background-color: #C2D9FF;
+    border-radius: 3px;
+    margin: 190px 350px;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+#button{
+    width: 150px;
+    height: 30px; 
+    background-color:#8E8FFA;
+    color: #fff;
+    padding: 10px 15px;
+    margin: -130px 370px;
+    border: none; 
+    border-radius: 5px; 
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 25px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+#button:hover {
+    transform: translateY(-35px);
+    background-color: white;
+    color:#192655;
+}
+
+.pic{
+   
+   /* position: relative;
+    top: 20px; 
+    left: -10px;*/ 
+    height:500px;
+    width: 500px;
+    float:right;
+    /*border: 2px solid white;*/
+    margin: -300px 200px;
+    animation: UpDown 1.5s infinite alternate;
+
+}
+
+@keyframes UpDown {
+    0% {
+        transform: translateY(0); 
+    }
+    100% {
+        transform: translateY(-50px); /* End position (move up 20px)*/
+    }
+}
