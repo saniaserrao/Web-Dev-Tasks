@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="landing.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <p id="caption1">SPACE QUIZ</p>
+    <p id="caption2">Test Your Knowledge!</p>
+    <p id="caption3"> RULES<br>1. Each question is awarded 1 point<br>
+        2. Only 30secs can be spent on each question<br>
+        3. You can toggle between previous and next questions<br>
+        4. Select atleast one option before the next question</p>
+       
+    <p id="button">START QUIZ</p>
+    <img src="imgs/main_pic.jpg" alt="astronaut" class="pic">
+
+    <script>
+        startButton=document.getElementById("button");
+        addEventListener("click",open);
+
+        function open(){
+            window.location.href = "quiz_main.html";
+
+        }
+
+    </script>
+</body>
+</html>
